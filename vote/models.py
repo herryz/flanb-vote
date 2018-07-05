@@ -20,8 +20,8 @@ class Vote(models.Model):
     detail = models.TextField(_('detail'), blank=True)
     public = models.SmallIntegerField(_('public'), choices=BOOL_CHOICES, default=0)
     multi = models.SmallIntegerField(_('multi'), choices=BOOL_CHOICES, default=0)
-    max = models.IntegerField(_('max'))
-    min = models.IntegerField(_('min'))
+    max = models.IntegerField(_('max'), default=1)
+    min = models.IntegerField(_('min'), default=1)
 
     start_dt = models.DateTimeField(_('start_dt'))
     end_dt = models.DateTimeField(_('start_dt'))
@@ -38,7 +38,7 @@ class Vote(models.Model):
 class VoteOption(models.Model):
     vote_id = models.IntegerField(_('vote_id'))
     option = models.CharField(_('name'), max_length=100)
-    count = models.IntegerField(_('count'))
+    count = models.IntegerField(_('count'), default=0)
 
     class Meta:
         db_table = 'flanb_vote_option'

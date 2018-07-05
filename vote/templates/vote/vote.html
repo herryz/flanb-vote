@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Vote for example</h1>
+
+{% for vote in vote_list%}
+    <p>{{ vote.name }}</p>
+    <p>{{ vote.detail }}</p>
+{% endfor %}
+{% endblock %}
+
+
