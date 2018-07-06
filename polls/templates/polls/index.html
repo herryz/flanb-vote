@@ -1,0 +1,9 @@
+{% if vote_list %}
+    <ul>
+        {% for vote in vote_list %}
+            <li><a href="{% url 'detail' vote.id%}">{{ vote.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No votes are available.</p>
+{% endif %}

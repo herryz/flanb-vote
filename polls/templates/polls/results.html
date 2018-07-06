@@ -1,0 +1,9 @@
+<h1>{{ vote.name }}</h1>
+
+<ul>
+    {% for op in vote_options %}
+        <li>{{ op.option_name }} -- {{ op.count }} vote{{ op.count|pluralize }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'detail' vote.id %}">Vote again?</a>

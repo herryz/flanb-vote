@@ -28,6 +28,9 @@ class Vote(models.Model):
     create_dt = models.DateTimeField(_('start_dt'), auto_now_add=True)
     update_dt = models.DateTimeField(_('end_dt'), auto_now=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         db_table = 'flanb_vote'
         ordering = ('id',)
@@ -37,8 +40,11 @@ class Vote(models.Model):
 
 class VoteOption(models.Model):
     vote_id = models.IntegerField(_('vote_id'))
-    option = models.CharField(_('name'), max_length=100)
+    option_name = models.CharField(_('option_name'), max_length=100)
     count = models.IntegerField(_('count'), default=0)
+
+    def __str__(self):
+        return self.option_name
 
     class Meta:
         db_table = 'flanb_vote_option'
